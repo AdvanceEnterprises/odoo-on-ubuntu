@@ -2,7 +2,7 @@
 This project configures a [Docker](https://docs.docker.com/) environment to host an *extremely* lightweight [Ubuntu](https://ubuntu.com/server/docs) instance ready for hosting [Odoo](https://www.odoo.com/documentation/). 
 
 ## Introduction
-This image DOES NOT CONTAIN THE ODOO SOURCE. Please see the **Docker Volumes for Odoo** section.
+This image DOES NOT CONTAIN THE ODOO SOURCE. Please see the [Docker Volumes for Odoo](https://github.com/gadgetjoejoe/odoo-on-ubuntu#docker-volumes-for-odoo) section.
 
 We start from the latest Ubuntu LTS core and add a few administrative tools as well as packages required *for a L->R language only Odoo instance.*
 
@@ -59,7 +59,7 @@ One simple way to install Odoo onto your volume is to use git. Confirm you're in
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. 
 
 ## License
-This project is licensed under the MIT License - see the LICENSE.md file for details. 
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/gadgetjoejoe/odoo-on-ubuntu/LICENSE) file for details. 
 
 ## Contact
 Joe Clark - joe.clark@advance.enterprises
