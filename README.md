@@ -23,7 +23,7 @@ If you plan to use an NFS mount or some other method of managing the Odoo filest
 ### Docker Volumes for Odoo
 The Dockerfile creates two [Volumes](https://docs.docker.com/storage/volumes/) - one at */srv/odoo* and one at */srv/odoo-filestore*.
 
-The -v options on the command ```sh docker run -v named_volume:/path/on/container ``` in the installation guide results in two named volumes being created, one named odoo and the other odoo-filestore. This provides an easy way for multiple Docker Containers running Odoo on the same Docker Engine to share the same filestore. It also dramatically reduces the size of the Docker image responsible for running the source.
+The -v options on the command ``` docker run -v named_volume:/path/on/container ``` in the installation guide results in two named volumes being created, one named odoo and the other odoo-filestore. This provides an easy way for multiple Docker Containers running Odoo on the same Docker Engine to share the same filestore. It also dramatically reduces the size of the Docker image responsible for running the source.
 
 The installation guide provides a crude way of loading the [Odoo source code](https://github.com/odoo/odoo) onto the 'odoo' named Docker volume. You'll need to have an accessible instance of Postgres to use as your database to run that source.
 
@@ -42,18 +42,18 @@ Ensure you have the latest version of Docker installed on your machine. If not, 
 There are two ways to get the image. Building it yourself from the Dockerfile is recommended.
 
 #### Build from the Dockerfile - Recommended
-1. Clone this repository: ```sh git clone https://github.com/gadgetjoejoe/odoo-on-ubuntu.git ```
-2. Navigate to the project directory: ```sh cd odoo-on-ubuntu ```
-3. Build the Docker image: ```sh docker build --tag odoo-on-ubuntu . ```
-4. Start the Docker container: ```sh docker run --name odoo-container -it odoo-on-ubuntu ```
+1. Clone this repository: ``` git clone https://github.com/gadgetjoejoe/odoo-on-ubuntu.git ```
+2. Navigate to the project directory: ``` cd odoo-on-ubuntu ```
+3. Build the Docker image: ``` docker build --tag odoo-on-ubuntu . ```
+4. Start the Docker container: ``` docker run --name odoo-container -it odoo-on-ubuntu ```
 
 #### Download from GitHub - Linux/AMD64 Only
 You can also pull the image directly from the GitHub Package Registry.
 
-After pulling the image, start the Docker container: ```sh docker run --name odoo-container -it odoo-on-ubuntu ```
+After pulling the image, start the Docker container: ``` docker run --name odoo-container -it odoo-on-ubuntu ```
 
 ### Installing Odoo
-One simple way to install Odoo onto your volume is to use git. Confirm you're in /srv/odoo then run: ```sh git clone https://github.com/odoo/odoo.git . ```
+One simple way to install Odoo onto your volume is to use git. Confirm you're in /srv/odoo then run: ``` git clone https://github.com/odoo/odoo.git . ```
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. 
