@@ -2,9 +2,9 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "16.0-on-jammy" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "16.0-on-jammy" ]
+    branches: [ "main" ]
 env:
   IMAGE_NAME: odoo-on-ubuntu
 jobs:
