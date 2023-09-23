@@ -18,7 +18,6 @@ jobs:
     - name: Build the Docker image
       run: |
         docker build . --file Dockerfile --tag $IMAGE_NAME \
-        --secret id=passwords,src=./passwords \
         --label "org.opencontainers.image.source=https://github.com/gadgetjoejoe/odoo-on-ubuntu" \
         --label "org.opencontainers.image.description=Lightweight Ubuntu ready for Odoo." \
         --label "org.opencontainers.image.licenses=MIT"
