@@ -1,5 +1,5 @@
 # Odoo On Ubuntu In A Container
-This project configures a [Docker](https://docs.docker.com/) environment to host an *extremely* lightweight [Ubuntu](https://ubuntu.com/server/docs) instance ready for hosting [Odoo](https://www.odoo.com/documentation/). 
+This project configures a [Docker](https://docs.docker.com/) environment to host a lightweight [Ubuntu](https://ubuntu.com/server/docs) instance ready for hosting [Odoo](https://www.odoo.com/documentation/). 
 
 ## Introduction
 This image DOES NOT CONTAIN THE ODOO SOURCE. Please see the [Docker Volumes for Odoo](https://github.com/gadgetjoejoe/odoo-on-ubuntu#docker-volumes-for-odoo) section.
