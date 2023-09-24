@@ -4,11 +4,12 @@ This project configures a [Docker](https://docs.docker.com/) environment to host
 ## Introduction
 This image DOES NOT CONTAIN THE ODOO SOURCE. Please see the [Docker Volumes for Odoo](https://github.com/gadgetjoejoe/odoo-on-ubuntu#docker-volumes-for-odoo) section.
 
-We start from the latest Ubuntu LTS core and add a few administrative tools as well as packages required *for a L->R language only Odoo instance.*
+We start from the latest Ubuntu LTS core and add a few administrative tools.
+
+We also install [NodeJS](https://nodejs.dev/en/learn/) and [NPM](https://docs.npmjs.com/), plus [less.js](https://lesscss.org/) and [rtlcss](https://www.odoo.com/documentation/16.0/administration/install/source.html#:~:text=Download%20and%20install%20nodejs%20and%20npm%20with%20a%20package%20manager.).
 
 The following is not installed on the image:
 - apache/nginx
-- nodejs - [Required for L<-R language support.](https://www.odoo.com/documentation/16.0/administration/install/source.html#:~:text=Download%20and%20install%20nodejs%20and%20npm%20with%20a%20package%20manager.)
 - odoo
 - postgresql
 

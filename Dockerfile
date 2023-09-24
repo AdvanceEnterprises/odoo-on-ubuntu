@@ -1,18 +1,20 @@
 FROM ubuntu:jammy
 
+SHELL ["/bin/bash", "-xo", "pipefail", "-c"]
+
 ARG DEBIAN_FRONTEND=noninteractive
+
+ENV LANG C.UTF-8
 
 # Set a default timezone for python3-tz
 ENV TZ=Etc/UTC
 
-# Expose the default port for browser traffic.
-EXPOSE 8069
-# Expose the default port for RPC traffic.
-EXPOSE 8072
+# Expose the default ports for browser and web traffic.
+EXPOSE 8069 8071 8072
 
 # Create a persistent volume for storing the odoo source.
 # Create a persistent volume for storing cached and/or user uploaded files.
-VOLUME /srv/odoo /srv/odoo-filestore
+VOLUME /srv/odoo/src /srv/odoo/filestore
 
 # Copy any temp files needed into the image.
 # You can add files you need to ./sources/
@@ -20,7 +22,7 @@ VOLUME /srv/odoo /srv/odoo-filestore
 COPY sources /run/sources
 
 # Install packages needed by Odoo.
-# This list comes from the odoo core file /debian/control
+# This list comes from the file /debian/control in the Odoo 16.0 source & the odoo/docker GitHub repo.
 
 # Latest version of Odoo Debian Dependencies
 RUN apt-get update && \
@@ -31,6 +33,9 @@ apt-get clean && \
 rm -rf /var/lib/apt/lists/* && \
 rm -rf /run/sources
 
+# Install rtlcss
+RUN npm install -g rtlcss
+
 # Root is the only user so far.
 # We need to add a system user for Odoo.
 RUN adduser --system odoo && \
@@ -39,15 +44,15 @@ adduser --group srv && \
 usermod -aG odoo odoo && \
 usermod -aG srv odoo
 
-# Let's run Odoo from /srv
+# Let's run Odoo from /srv/odoo/src
 # We created a group called srv in the last RUN command.
 RUN mkdir /srv/odoo && \
-mkdir /srv/odoo-filestore && \
+kdir /srv/odoo/src && \
+mkdir /srv/odoo/filestore && \
 chown odoo /srv/odoo && \
-chown odoo /srv/odoo-filestore && \
+chown odoo /srv/odoo/filestore && \
 chgrp -R srv /srv && \
-chmod 750 /srv/odoo && \
-chmod 750 /srv/odoo-filestore
+chmod -R 750 /srv
 
 # Moving forward our default user is going to be Odoo.
 USER odoo
