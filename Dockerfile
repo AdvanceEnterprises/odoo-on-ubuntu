@@ -47,7 +47,7 @@ usermod -aG srv odoo
 # Let's run Odoo from /srv/odoo/src
 # We created a group called srv in the last RUN command.
 RUN mkdir /srv/odoo && \
-kdir /srv/odoo/src && \
+mkdir /srv/odoo/src && \
 mkdir /srv/odoo/filestore && \
 chown odoo /srv/odoo && \
 chown odoo /srv/odoo/filestore && \
